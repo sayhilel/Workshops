@@ -37,7 +37,7 @@ impl Character {
             io::stdin().read_line(&mut input).unwrap();
 
             index += 1;
-            while self.dialog[index].len() == 0 && index < self.dialog.len() {
+            while self.dialog[index].len() == 0 && index < self.dialog.len() - 1 {
                 index += 1;
             }
         }
