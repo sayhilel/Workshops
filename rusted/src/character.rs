@@ -29,6 +29,10 @@ impl Character {
         println!("[ {} and {} start talking. ]", you, self.name_styled);
         io::stdout().flush().unwrap();
         while index < self.dialog.len() {
+            if self.dialog[index].len() == 0 {
+                index += 1;
+                continue;
+            }
             println!("{}: {}", self.name_styled, self.dialog[index]);
             io::stdout().flush().unwrap();
 
@@ -37,9 +41,6 @@ impl Character {
             io::stdin().read_line(&mut input).unwrap();
 
             index += 1;
-            while self.dialog[index].len() == 0 && index < self.dialog.len() - 1 {
-                index += 1;
-            }
         }
     }
 }
